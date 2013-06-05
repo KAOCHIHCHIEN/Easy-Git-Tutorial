@@ -5,10 +5,12 @@
 		<meta content="keywords" name="git tutorial">
 		<meta content="description" name="git tutorial">
 		<link href="css/bootstrap.min.css" rel="stylesheet" >
-		<link href="css/bootstrap-responsive.css" rel="stylesheet">
+		<link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+		<link href="css/index.css" rel="stylesheet">
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/carousel.js"></script>
+		<script src="js/scrollside.js"></script>
 		<title>Basic Git Tutorial</title>
 	</head>
 	<body>
@@ -16,25 +18,134 @@
 			<nav class="navbar navbar-fixed-top">
 				<div class="navbar-inner">
 					<a href="#" class="brand" style="margin-left:50px;margin-right:500px">Git 教學研究站</a>
-					<ul class="nav">
-						<li class="active"><a href="#">教學文件</a></li>
-						<li><a href="#">自我練習</a></li>
-						<li><a href="#">簡報</a></li>
-						<li><a href="#">部落格</a></li>
+					<ul class="nav" id="scroll_side">
+						<li class="active" id="learn"><a href="#learning">教學文件</a></li>
+						<li id="try"><a href="try.html">自我練習</a></li>
+						<li id="sld"><a href="slide.html">教學資源</a></li>
+						<li id="blg"><a href="blog.html">部落格</a></li>
 					</ul>
 				</div>
 			</nav>
-
 		</header>
-		<ul class="span3 nav nav-pills nav-stacked navbar-fixed-left" style="margin-top:50px;margin-left:30px">
-			<li class="active"><a href="#">版本控制</a></li>
-			<li><a href="#">Git 基本名詞</a></li>
-			<li><a href="#">Git 基本結構</a></li>
-			<li><a href="https://github.com">GitHub</a></li>
-		</ul>	
-		<footer>
+		<article id="main">
+			<section id="learning">
+				<nav id="scroll_down">
+					<ul class="span3 nav nav-pills nav-stacked navbar-fixed-left" >
+						<li class="active"><a href="#ver_con" class="scroll">版本控制</a></li>
+						<li><a href="#name_intro" class="scroll">Git 基本名詞</a></li>
+						<li><a href="#git_structure" class="scroll">Git 基本結構</a></li>
+						<li><a href="#github_tutorial" class="scroll">Github 教學</a></li>
+						<li><a href="https://github.com">GitHub</a></li>
+					</ul>
+				</nav>
+				<!-- Apply scroll down to hash tag and automatically change the active class-->
+				<script>
+					var main = main = $('#scroll_down ul');
 
+					$('.scroll').click(function(event) {
+					        
+					    event.preventDefault();
+					 
+					    var full_url = this.href,
+					        parts = full_url.split('#'),
+					        trgt = parts[1],
+					        target_offset = $('#'+trgt).offset(),
+					        target_top = target_offset.top;
+					        
+					    $('html, body').animate({scrollTop:target_top}, 500);
+					    
+					    /* Remove active class on any li when an anchor is clicked */
+					    
+					    main.children().removeClass();
+					    
+					    /* Add active class to clicked anchor's parent li */
+					        
+					    $(this).parent().addClass('active');
 
+					});
+				</script>
+				<div class="row" id="ver_con">
+					<div class="span3"></div>
+					<div class="span6"  style="margin-left:8em">
+						<h2>版本控制</h2>
+						<hr/>
+						<p>
+						版本控制（Revision control）是維護工程藍圖的標準作法，能追蹤工程藍圖從誕生一直到定案的過程。此外，版本控制也是一種軟體工程技巧，藉此能在軟體開發的過程中，確保由不同人所編輯的同一程式檔案都得到同步。
+						</p>
+						<h3 style="text-align:center">為什麼使用版本控制？</h3>
+						<div>
+						在軟體開發的過程中，程式碼每天不斷地產出，過程中會發生以下情況：
+							<ul style="margin-top:1em">
+								<li>檔案被別人或自己覆蓋，甚至遺失</li>
+								<li>想復原前幾天寫的版本</li>
+								<li>想知道跟昨天寫的差在哪裡</li>
+								<li>是誰改了這段程式碼，為什麼</li>
+								<li>軟體發行，需要分成維護版跟開發版</li>
+							</ul>
+						因此，我們希望有一種機制，能有幫助我們：
+							<ul style="margin-top:1em">
+								<li>可以隨時復原修改，回到之前的版本</li>
+								<li>多人協作時，不會把別人的東西蓋掉</li>
+								<li>保留修改歷史記錄，以供查詢</li>
+								<li>軟體發行時，可以方便管理不同版本</li>
+							</ul>
+						</div>
+						<h2>定義</h2>
+						<p>
+							一個版本控制系統 Version Control System (VCS)，通常有以下功能
+							<ol>
+								<li>建立 Repository (儲存庫)，用來保存程式碼。</li>
+								<li>方便散佈程式給團隊，有效率協同開發 </li>
+								<li>記錄誰改變什麼、在什麼時候、因為什麼原因 </li>
+								<li>Branch(分支)，可因不同情境分開開發</li>
+								<li>Tag(標籤) 重要里程碑，以便參照</li>
+							</ol>
+							那麼，什麼東西要存進Repository呢? 簡單來說，就是所有跑起來這個專案需要的東西，包括所有原始碼、範例設計檔、文件等等。而像是暫存檔、log 檔案、build files 等編譯後的產物則不需要存進 Repository。	
+						</p>
+						
+					</div>
+				</div>
+				<div class="row" id="name_intro" >
+					<div class="span3" ></div>
+					<div class="span6" style="margin-left:8em">
+						<h2>Git 名詞解釋</h2>
+						<hr>
+					</div>
+				</div>
+				<div class="row"  id="git_structure">
+					<div class="span3" ></div>
+					<div class="span6" style="margin-left:8em">
+						<h2>基本結構</h2> 
+						<hr>
+						<img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Revision_controlled_project_visualization-2010-24-02.svg" width="220" height="540" style="margin-left: 13em"><br>
+						<div style="text-align:center">版本控制示意圖</div>
+					</div>
+				</div>
+				<div class="row" id="github_tutorial">
+					<div class="span3"></div>
+					<div class="span6" style="margin-left:8em">
+						<h2>Github 教學</h2>
+						<hr>
+					</div>
+				</div>
+			</section>
+		</article>
+		<hr/>				
+		<footer class="row" style="margin-left:35em">
+				<div class="container">
+					<p>
+						<i class="icon-check icon-black"></i>
+						本網站資料感謝<a href="#"> ihower 前輩</a>、<a href="#">維基百科</a>及<a href="#">Github</a>提供
+						<a href="#"><i class="icon-chevron-up icon-black" id="top"></i></a>
+					</p>
+				</div>
 		</footer>
+		<script>
+			$(function(){
+				$('#top').click(function(){
+					$('html,body').animate({scrollTop: 0}, 800);
+				});
+			})
+		</script>
 	</body>
 </html>

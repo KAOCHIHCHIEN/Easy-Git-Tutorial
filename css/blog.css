@@ -1,0 +1,12 @@
+.span6{
+	border:0.3em solid gray;
+	margin-top: 5em;
+	border-radius: 1em;
+	margin-left: 30em;
+}
+.span6 > p{
+	text-indent: 2em;
+}
+.span6 > h3{
+	text-align: center;
+}
