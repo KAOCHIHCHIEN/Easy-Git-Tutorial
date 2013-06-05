@@ -1,0 +1,11 @@
+.span8{
+	border:0.3em solid gray;
+	margin-top: 5em;
+	margin-left: 23em;
+	border-radius: 1em;
+}
+iframe{
+	vertical-align: center;
+	border-radius: 1em;
+	margin-left: 12em;
+}
