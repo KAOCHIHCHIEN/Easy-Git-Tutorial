@@ -7,17 +7,19 @@
 		<link href="css/bootstrap.min.css" rel="stylesheet" >
 		<link href="css/bootstrap-responsive.min.css" rel="stylesheet">
 		<link href="css/index.css" rel="stylesheet">
+		<link href="css/photobox.css" rel="stylesheet">
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/carousel.js"></script>
 		<script src="js/scrollside.js"></script>
+		<script src="js/photobox.js"></script>
 		<title>Basic Git Tutorial</title>
 	</head>
-	<body>
-		<header>
+	<body class="well fluid">
+		<header >
 			<nav class="navbar navbar-fixed-top">
 				<div class="navbar-inner">
-					<a href="#" class="brand" style="margin-left:4em;margin-right:30em">Git 教學研究站</a>
+					<a href="index.html" class="brand" style="margin-left:4em;margin-right:30em">Git 教學研究站</a>
 					<ul class="nav" id="scroll_side">
 						<li class="active" id="learn"><a href="#learning">教學文件</a></li>
 						<li id="try"><a href="try.html">自我練習</a></li>
@@ -26,17 +28,19 @@
 				</div>
 			</nav>
 		</header>
-		<article id="main">
+		<article id="main" class="fluid">
 			<section id="learning">
 				<nav id="scroll_down">
 					<ul class="span3 nav nav-pills nav-stacked navbar-fixed-left" >
-						<li class="active"><a href="#ver_con" class="scroll">版本控制</a></li>
-						<li><a href="#name_intro" class="scroll">Git 基本名詞</a></li>
+						<li class="active" id="first"><a href="#ver_con" class="scroll">版本控制</a></li>
+						<li><a href="#name_intro" class="scroll">Git 名詞解釋</a></li>
 						<li><a href="#git_structure" class="scroll">Git 基本結構</a></li>
 						<li><a href="#github_tutorial" class="scroll">Github 教學</a></li>
+						<li><a href="#git_application" class="scroll">Git 的應用</a></li> 
 						<li><a href="https://github.com">GitHub</a></li>
 					</ul>
 				</nav>
+
 				<!-- Apply scroll down to hash tag and automatically change the active class-->
 				<script>
 					var main = main = $('#scroll_down ul');
@@ -89,19 +93,20 @@
 								<li>軟體發行時，可以方便管理不同版本</li>
 							</ul>
 						</div>
-						<h2>定義</h2>
-						<p>
-							一個版本控制系統 Version Control System (VCS)，通常有以下功能
-							<ol>
-								<li>建立 Repository (儲存庫)，用來保存程式碼。</li>
-								<li>方便散佈程式給團隊，有效率協同開發 </li>
-								<li>記錄誰改變什麼、在什麼時候、因為什麼原因 </li>
-								<li>Branch(分支)，可因不同情境分開開發</li>
-								<li>Tag(標籤) 重要里程碑，以便參照</li>
-							</ol>
-							那麼，什麼東西要存進Repository呢? 簡單來說，就是所有跑起來這個專案需要的東西，包括所有原始碼、範例設計檔、文件等等。而像是暫存檔、log 檔案、build files 等編譯後的產物則不需要存進 Repository。	
-						</p>
-						
+						<h3>定義</h3>
+						<div>
+							<p>
+								一個版本控制系統 Version Control System (VCS)，通常有以下功能
+								<ol>
+									<li>建立 Repository (儲存庫)，用來保存程式碼。</li>
+									<li>方便散佈程式給團隊，有效率協同開發 </li>
+									<li>記錄誰改變什麼、在什麼時候、因為什麼原因 </li>
+									<li>Branch(分支)，可因不同情境分開開發</li>
+									<li>Tag(標籤) 重要里程碑，以便參照</li>
+								</ol>
+								那麼，什麼東西要存進Repository呢? 簡單來說，就是所有跑起來這個專案需要的東西，包括所有原始碼、範例設計檔、文件等等。而像是暫存檔、log 檔案、build files 等編譯後的產物則不需要存進 Repository。	
+							</p>
+						</div>
 					</div>
 				</div>
 				<div class="row" id="name_intro" >
@@ -114,37 +119,197 @@
 				<div class="row"  id="git_structure">
 					<div class="span3" ></div>
 					<div class="span6" style="margin-left:8em">
-						<h2>基本結構</h2> 
+						<h2>Git 基本結構</h2> 
 						<hr>
-						<img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Revision_controlled_project_visualization-2010-24-02.svg" width="220" height="540" style="margin-left: 13em"><br>
+						<div id='gallery'>
+							<a href="https://upload.wikimedia.org/wikipedia/commons/a/af/Revision_controlled_project_visualization-2010-24-02.svg">
+						<img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Revision_controlled_project_visualization-2010-24-02.svg" width="220" height="540" style="margin-left: 13em" alt="版本控制示意圖"><br>
+						</a>
+						</div>
 						<div style="text-align:center">版本控制示意圖</div>
 					</div>
 				</div>
+
+				<!--script for gallery-->
+
+				<script>
+					$('#gallery').photobox('a');
+					// or with a fancier selector and some settings, and a callback:
+					$('#gallery').photobox('a:first', { thumbs:false, time:0 }, imageLoaded);
+					function imageLoaded(){
+						console.log('image has been loaded...');
+					}
+				</script>
+
+
 				<div class="row" id="github_tutorial">
 					<div class="span3"></div>
 					<div class="span6" style="margin-left:8em">
 						<h2>Github 教學</h2>
 						<hr>
+						<h3>簡介</h3>
+						<hr>
+						<div id="gallery01">
+							<p>
+								Github 是一個 git 的拖管網站，他可以讓開發人把自己的專案儲存到線上，與全世界分享，我們可以方便的使用 Git 在本機進行管理專案。<br/>
+ GitHub 同時提供付費賬戶和為開源項目提供的免費賬戶。根據在 2009 年的 Git 用戶調查，GitHub 是最流行的 Git 存取站點。它提供了像 feeds、followers 和顯示開發者們怎樣在他們版本庫上的版本工作的網路圖表。
+ GitHub 也提供一個粘貼箱風格的站點，個人信息庫和網頁使用 Wiki，通過一個 git repository 即可對這些頁面進行編輯。
+							</p>
+						<hr/>
+						<h3>建立帳號</h3>
+						<hr>
+							<p>
+								<a href="http://i.imgur.com/dBiVqte.png"  alt="建立帳號">
+									<img src="http://i.imgur.com/dBiVqte.png" style="margin-left:-2em"/>		
+								</a>
+							</p>
+						<hr>
+						<h3>建立新repository</h3>
+						<hr>
+							<p>
+								在和本機的 repository 連動之前，先給自己的專案取個名字吧，這會是你專案之後的名字，也會是其他人搜尋你專案的時候的關鍵字，好的專案一定有一個好的名字。
+								<a href="http://i.imgur.com/bGEBbhJ.png?1" alt="建立新 repository">
+									<img src="http://i.imgur.com/bGEBbhJ.png?1" style="margin-left:8.5em">
+								</a>
+							</p>
+						<hr>
+						<h3>綁定機器的 SSH KEY</h3>
+						<hr>
+							<p>
+								因為要讓 Github 知道是我們這台電腦上傳的專案，所以我們要和 Github 之間建立一種默契，這個默契就是使用 ssh 協定時的 public key，我們給 Github 我們本機的 ssh public key ，告訴 Github 拿著這個 key 的電腦才是這個帳號的使用者， 如此一來就只能由這台電腦進行管理，才不會造成其他人來我們的帳號亂上傳東西的窘境。
+							</p>
+							<p>
+								首先，點選右上角的工具按鈕，進入帳號設定頁面，在頁面的左下角點選 SSH KEY<br>
+								<a href="http://i.imgur.com/Rs74P6k.png?1" alt="SSH KEY">
+									<img src="http://i.imgur.com/Rs74P6k.png?1" style="margin-top:1em">
+								</a>
+							</p>
+							<br>
+							<p>
+								這個時候需要打開終端機產生本機的 SSH KEY，並將產生的 SSH KEY 加入到 Github 的帳號之中，若是不知道產生 SSH KEY的方法，可以參考以下的
+								<a href="https://help.github.com/articles/generating-ssh-keys">網頁</a>
+							</p>
+						<hr>
+						<h3>將本機 repository 和 Github repository 同步</h3>
+						<hr>
+							<p>
+								打開空的 repository，Github 會指示你如何將本機 repository remote 到 Git 的 repository
+								進入到本機的 repository 資料夾之中，並輸入以下指令，即可連線並把目前的 repository 同步到 Github 上面了。<br>
+								<code>
+								git remote add origin git@github.com:your_account/sandbox.git<br>
+								git push -u origin master<br>
+								</code>
+								之後只需要<br>
+								<code> 
+								git push<br>
+								</code> 即可
+							</p>
+						<hr>
+						<h3>Folk 其他使用者的專案</h3>
+							<p>
+								Fork 是一個較為特殊的稱呼方式，意思是講其他使用者的 repository 複製到本機，我也可以直接透過他的 repository 來自己修改這個專案，讓這個專案更好。<br>
+								如果你有寫入權限的話(被加入成Collaborators)，就可以用 SSH 協定 Clone 下來：<br>
+								<code>
+									git clone git@github.com:Username/repository.git <br><br>
+								</code>
+								如果沒有寫入權限 (Collaborators)的話，因為這個專案是公開的，所以你還是可以用 Git 協定 Clone 下來：<br>
+								<code>
+									git clone git://github.com/Username/repository.git<br>
+								</code>
+								<br>
+								如果有防火牆問題，改用 HTTPS 協定：<br>
+								<code>
+									git clone https://github.com/Username/repository.git
+								</code>	
+							</p>
+						<hr>
+						<h3>Pull - 從遠端更新</h3>
+						<hr>
+							<p>
+								<code>
+									git pull 或 git pull origin master<br>
+								</code>
+								實際作用是先 git fetch 遠端的 branch，然後與本地端的 branch 做 merge，產生一個 merge commit 節點
+							</p>
+						<hr>
+						<h3>Push - 將 Commit 送出去</h3>
+						<hr>
+							<p>
+								<code>
+								git push 或 git push origin master<br>
+								</code>
+								實際的作用是將本地端的 master branch 與遠端的 master branch 作 fast-forward 合併。如果出現 [rejected] 錯誤的話，表示你必須先作 pull。
+							</p>	
+						<hr>	
+						</div>
 					</div>
 				</div>
+				<!-- The photo gallery -->
+				<script>
+					$('#gallery01').photobox('a');
+					// or with a fancier selector and some settings, and a callback:
+					$('#gallery01').photobox('a:first', { thumbs:false, time:0 }, imageLoaded);
+					function imageLoaded(){
+						console.log('image has been loaded...');
+					}
+				</script>
+
+				<div class="row" id="git_application">
+					<div class="span3"></div>
+					<div class="span6" style="margin-left:8em">
+						<h2>Git 的應用</h2>
+						<hr>
+						<ul>
+							<li><a href="#tw_law">台灣法律沿革</a></li>
+							<li><a href="#tpe_mrt">台北捷運路線</a></li>
+						</ul>
+						<div id="tw_law">
+							<p>
+								<h4>台灣法律沿革</h4>
+								github repository :<br/>
+								<code>
+									<a href="https://github.com/victorhsieh/tw-law-corpus">
+										https://github.com/victorhsieh/tw-law-corpus
+									</a>
+								</code>
+							</p>
+						</div>
+						<div id="tpe_mrt">
+							<p>
+								<h4>台北捷運路線</h4>
+								<a href="http://gugod.org/2009/12/12/3389620_29acb2fe86d3e03e7f8c665c4225c454.jpg" alt="台北捷運">
+									<img src="http://gugod.org/2009/12/12/3389620_29acb2fe86d3e03e7f8c665c4225c454.jpg" style="margin-left:12em"><br>
+								</a>
+								github repository :<br>
+								<code>
+									<a href="https://github.com/gugod/Taipei-MRT-In-Git">
+										https://github.com/gugod/Taipei-MRT-In-Git
+									</a>
+								</code>
+							</p>
+						</div>		
+					</div>
+				</div>
+				
+				<script>
+					$('#tpe_mrt').photobox('a');
+					// or with a fancier selector and some settings, and a callback:
+					$('#tpe_mrt').photobox('a:first', { thumbs:false, time:0 }, imageLoaded);
+					function imageLoaded(){
+						console.log('image has been loaded...');
+					}
+
+				</script>
 			</section>
 		</article>
 		<hr/>				
-		<footer class="row" style="margin-left:35em">
+		<footer class="row-fluid" style="margin-left:35em">
 				<div class="container">
 					<p>
 						<i class="icon-check icon-black"></i>
 						本網站資料感謝<a href="http://ihower.tw/git/"> ihower 前輩</a>、<a href="https://zh.wikipedia.org/wiki/Git">維基百科</a>及<a href="https://help.github.com/articles/set-up-git">Github</a>提供
-						<a href="#"><i class="icon-chevron-up icon-black" id="top"></i></a>
 					</p>
 				</div>
 		</footer>
-		<script>
-			$(function(){
-				$('#top').click(function(){
-					$('html,body').animate({scrollTop: 0}, 800);
-				});
-			})
-		</script>
 	</body>
 </html>

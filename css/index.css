@@ -1,5 +1,7 @@
-#main{
-	overflow:hidden;
+/*index.css*/
+
+body{
+	overflow-x:hidden;
 }
 #scroll_down{
 	position: fixed;
@@ -16,6 +18,9 @@
 }
 .span6 h2{
 	text-align: center;
+}
+.span6 h3{
+	text-align:center;
 }
 .span6  p{
 	text-indent: 2em;
