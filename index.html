@@ -22,6 +22,7 @@
 					<a href="index.html" class="brand" style="margin-left:4em;margin-right:30em">Git 教學研究站</a>
 					<ul class="nav" id="scroll_side">
 						<li class="active" id="learn"><a href="#learning">教學文件</a></li>
+						<li id="start"><a href="start.html">開始使用</a></li>
 						<li id="try"><a href="try.html">自我練習</a></li>
 						<li id="sld"><a href="slide.html">教學資源</a></li>
 					</ul>
@@ -107,26 +108,141 @@
 								那麼，什麼東西要存進Repository呢? 簡單來說，就是所有跑起來這個專案需要的東西，包括所有原始碼、範例設計檔、文件等等。而像是暫存檔、log 檔案、build files 等編譯後的產物則不需要存進 Repository。	
 							</p>
 						</div>
+						<h3>演進歷史</h3>
+						<div>
+							<p>
+								版本控制系統從古至今，有幾種不同的模式：
+								<ol>
+									<li>Local VCS</li>
+									<li>Centralized VCS (Lock型，悲觀鎖定)</li>
+									<li>Centralized VCS(Merge型，樂觀鎖定)</li>
+									<li>Distributed VCS</li>
+								</ol>
+								<hr>
+								<div >
+									<strong style="font-size:1.8em">Local VCS</strong><br>
+									在本地端使用 copy paste 進行資料夾管理，例如 rcs。當然，缺點是無法協同開發。
+									<a href="http://i.imgur.com/RsNQ9eP.png" >
+										<img src="http://i.imgur.com/RsNQ9eP.png"  style="margin-left:6em; margin-top:1em"/>
+									</a>
+								</div>
+								<hr>
+								<div >
+									<strong style="font-size:1.8em">Centralized VCS (Lock型，悲觀鎖定)</strong>
+									<br>
+									有一台中央團隊共用的Repository，當有人要編輯某個檔案時，進行鎖定，以避免其他人也同時編輯造成衝突。<br>
+									雖然可以避免衝突，但是很不方便。其他人得排隊才能編輯檔案，萬一先取出的人寫很久或忘記 解除鎖定，後果將不堪設想。<br>
+									<a href="http://i.imgur.com/nn6hX2F.png">
+										<img src="http://i.imgur.com/nn6hX2F.png" style="margin-left:2.5em;margin-top:1em"> 
+									</a>
+								</div>
+								<hr>
+								<div>
+									<strong style="font-size:1.8em">Centralized VCS(Merge型，樂觀鎖定)</strong><br>
+									也是有一台中央團隊共用的Repository，但是不用Lock來避免衝突，而是事後發現如果有別人也修改同一個檔案(稱作衝突)，再進行手動編修解決。有非常多的VCS屬於這一型，包括CVS, Subversion, Perforce等等。Centralized VCS 的共同缺點是做什麼事都要跟伺服器連線，會比較慢。另外也有單點故障的風險(Single point of failure)，只要伺服器壞掉，大家就不用作事了。<br>
+
+									<a href="http://imgur.com/RWbDy85.png">
+										<img src="http://i.imgur.com/RWbDy85.png" style="margin-top:1em;margin-left:2.5em"/>
+									</a>
+								</div>
+								<hr>
+								<div>
+									<strong style="font-size:1.8em">Distributed VCS</strong><br>
+									分散式版本控制系統讓本地端也擁有完整的Repository，就沒有上述集中式的問題，即使沒網路，照常可以 commit 和看 history log，也不用擔心server備份。例如 Git, Mercurial(Hg), Bazaar 等就是屬於分散式版本控制系統。<br>若要說有什麼缺點，就是能力越大，功能就越複雜，一開始學習上會比較辛苦一點。
+									<a href="http://imgur.com/8p82DMS.png">
+										<img src="http://i.imgur.com/8p82DMS.png" style="margin-top:1em;margin-left:2.5em"/>
+									</a>
+								</div>
+							</p>
+						</div>
 					</div>
 				</div>
+
+
+				<script>
+					$('#ver_con').photobox('a');
+					// or with a fancier selector and some settings, and a callback:
+					$('#ver_con').photobox('a:first', { thumbs:false, time:0 }, imageLoaded);
+					function imageLoaded(){
+						console.log('image has been loaded...');
+					}
+				</script>
+
 				<div class="row" id="name_intro" >
 					<div class="span3" ></div>
 					<div class="span6" style="margin-left:8em">
 						<h2>Git 名詞解釋</h2>
 						<hr>
+						<div>
+							<h3>物件模式(Object Mode)</h3>
+							Git 中一共有四種模式 : Blob﹑Tree﹑Commit﹑Tag。
+							<ul style="margin-top:1em">
+								<li><b>Blob</b>: 只是用來儲存檔案內容，連檔案名字都沒有。</li>
+								<li><b>Tree</b>: Tree 可以儲存文件名，同時也允许儲存一組檔案。所有内容以 Tree 或 Blob儲存，其中 Tree 對應於 UNIX 中的目錄，Blob 則大致對應於 inodes 或檔案内容。</li>
+								<li><b>Commit</b>: Commit 為你保存了關於誰、何時以及為何保存了這些快照的訊息。</li>
+								<li><b>Tag</b>: Tag 非常像一個 Commit ——包含一個標籤，一组數據，一個消息和一個指针。最主要的區别就是 Tag指向一個 Commit 而不是一個 tree。它就像是一個分支引用，但是不會變化——永遠指向同一個 Commit，僅僅是提供一個更加友好的名字。</li>
+							</ul>	
+							<blockquote style="background:#E5E4E2">
+									Note : 可以把<b>Blob</b> 看作是檔案，<b>Tree</b> 看作是資料夾，<b>Commit </b>看作是每次的更新，<b>Tag</b> 為大事件
+							</blockquote>	
+
+							<a href="http://marcusahnve.org/git_presentation/file/internals/object_model.svg">
+									<img src="http://marcusahnve.org/git_presentation/file/internals/object_model.svg">
+							</a>
+						</div>
+						<hr>
+						<div>
+							<h3>Git 參照 ( Git References )</h3>
+							你可以執行像<code> git log 1a410e </code>這樣的命令來查看完整的歷史，但是這樣你就要記得 1a410e 是你最後一次提交，这样才能在提交歷史中找到这些物件。你需要一個檔案來用一個簡单的名字來記錄這些 SHA-1 值，這樣你就可以用這些指針而不是原來的 SHA-1 值去檢索了。在 Git 中，我們稱之為“參照”（references or refs）。
+							<ol style="margin-top:1em">
+								<li><b>head</b>:  是一個指向你當前所在分支的引用標示符號。</li>
+								<li><b>tag</b>: tag 是一個物件也是一個引用，我們在之前已經做過了詳細的說明。</li>
+								<li><b>remote</b>: 是一個標示符號指向你最後一次和伺服器的通訊的分支。</li>
+								<li><b>branch</b>: 是一個指向每個分支最前面 commit 的指標，告訴使用者分支名稱。</li>
+							</ol>
+						</div>
+						<hr>
+						<div>
+							<h3></h3>
+						</div>
 					</div>
 				</div>
+
+
+				<script>
+					$('#name_intro').photobox('a');
+					// or with a fancier selector and some settings, and a callback:
+					$('#name_intro').photobox('a:first', { thumbs:false, time:0 }, imageLoaded);
+					function imageLoaded(){
+						console.log('image has been loaded...');
+					}
+				</script>
+
+
 				<div class="row"  id="git_structure">
 					<div class="span3" ></div>
 					<div class="span6" style="margin-left:8em">
 						<h2>Git 基本結構</h2> 
 						<hr>
 						<div id='gallery'>
-							<a href="https://upload.wikimedia.org/wikipedia/commons/a/af/Revision_controlled_project_visualization-2010-24-02.svg">
-						<img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Revision_controlled_project_visualization-2010-24-02.svg" width="220" height="540" style="margin-left: 13em" alt="版本控制示意圖"><br>
-						</a>
+							<h3>檔案的三種狀態</h3>
+							任何檔案在 Git 内都有三種狀態：
+							<ol style="margin-top:1em">
+								<li><b style="color:red">已提交（committed）</b>: 表示該檔案已經被安全地保存在本地資料庫中了。</li>
+								<li><b style="color:red">已修改（modified）</b>: 修改了某個檔案，但還没有提交保存。</li>
+								<li><b style="color:red">已暫存（staged）</b>: 把已修改的檔案放在下次提交时要保存的清單中。</li>
+							</ol>
+							<br>
+							而在 Git 之中檔案會在三種不同的工作區中轉移，下面分別介紹三種不同工具區<br>
+							<ol style="margin-top:1em">
+								<li><b style="color:red">Working Directory</b>: 所有的修改、變動都發生在這個階段。</li>
+								<li><b style="color:red">Staging area</b>: 作為一個中繼的工作區，在將檔案放入資料庫之前做確認及檢查的工作區，確認無誤後就可以將檔案轉移至資料庫。</li>
+								<li><b style="color:red">Repository</b>: 資料庫，儲存著更新的 commit，而線上資料庫會和本機的這個區域進行同步。</li>
+							</ol>
+							<a href="http://imgur.com/LBM6SN7.png">
+								<img src="http://i.imgur.com/LBM6SN7.png" title="Hosted by imgur.com"  style="margin-left:5em"/>
+							</a>
 						</div>
-						<div style="text-align:center">版本控制示意圖</div>
 					</div>
 				</div>
 
