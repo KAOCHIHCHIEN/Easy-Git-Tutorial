@@ -6,7 +6,8 @@ body{
 .span6{
 	border:0.3em solid gray;
 	margin-top: 5em;
-	margin-left: 25em;
+	margin-left: 5em;
+	padding:0.5em;
 	border-radius: 1em;
 }
 iframe{

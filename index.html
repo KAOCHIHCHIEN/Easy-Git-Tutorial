@@ -193,7 +193,7 @@
 						<hr>
 						<div>
 							<h3>Git 參照 ( Git References )</h3>
-							你可以執行像<code> git log 1a410e </code>這樣的命令來查看完整的歷史，但是這樣你就要記得 1a410e 是你最後一次提交，这样才能在提交歷史中找到这些物件。你需要一個檔案來用一個簡单的名字來記錄這些 SHA-1 值，這樣你就可以用這些指針而不是原來的 SHA-1 值去檢索了。在 Git 中，我們稱之為“參照”（references or refs）。
+							你可以執行像<pre> git log 1a410e </pre>這樣的命令來查看完整的歷史，但是這樣你就要記得 1a410e 是你最後一次提交，這樣才能在提交歷史中找到這些物件。你需要一個檔案來用一個簡單的名字來記錄這些 SHA-1 值，這樣你就可以用這些指針而不是原來的 SHA-1 值去檢索了。在 Git 中，我們稱之為“參照”（references or refs）。
 							<ol style="margin-top:1em">
 								<li><b>head</b>:  是一個指向你當前所在分支的引用標示符號。</li>
 								<li><b>tag</b>: tag 是一個物件也是一個引用，我們在之前已經做過了詳細的說明。</li>
@@ -311,49 +311,49 @@
 							<p>
 								打開空的 repository，Github 會指示你如何將本機 repository remote 到 Git 的 repository
 								進入到本機的 repository 資料夾之中，並輸入以下指令，即可連線並把目前的 repository 同步到 Github 上面了。<br>
-								<code>
-								git remote add origin git@github.com:your_account/sandbox.git<br>
-								git push -u origin master<br>
-								</code>
+								<pre>
+								    git remote add origin git@github.com:your_account/sandbox.git<br>
+								    git push -u origin master<br>
+								</pre>
 								之後只需要<br>
-								<code> 
-								git push<br>
-								</code> 即可
+								<pre> 
+									git push<br>
+								</pre> 即可
 							</p>
 						<hr>
 						<h3>Folk 其他使用者的專案</h3>
 							<p>
 								Fork 是一個較為特殊的稱呼方式，意思是講其他使用者的 repository 複製到本機，我也可以直接透過他的 repository 來自己修改這個專案，讓這個專案更好。<br>
 								如果你有寫入權限的話(被加入成Collaborators)，就可以用 SSH 協定 Clone 下來：<br>
-								<code>
+								<pre>
 									git clone git@github.com:Username/repository.git <br><br>
-								</code>
+								</pre>
 								如果沒有寫入權限 (Collaborators)的話，因為這個專案是公開的，所以你還是可以用 Git 協定 Clone 下來：<br>
-								<code>
+								<pre>
 									git clone git://github.com/Username/repository.git<br>
-								</code>
+								</pre>
 								<br>
 								如果有防火牆問題，改用 HTTPS 協定：<br>
-								<code>
+								<pre>
 									git clone https://github.com/Username/repository.git
-								</code>	
+								</pre>	
 							</p>
 						<hr>
 						<h3>Pull - 從遠端更新</h3>
 						<hr>
 							<p>
-								<code>
+								<pre>
 									git pull 或 git pull origin master<br>
-								</code>
+								</pre>
 								實際作用是先 git fetch 遠端的 branch，然後與本地端的 branch 做 merge，產生一個 merge commit 節點
 							</p>
 						<hr>
 						<h3>Push - 將 Commit 送出去</h3>
 						<hr>
 							<p>
-								<code>
-								git push 或 git push origin master<br>
-								</code>
+								<pre>
+									git push 或 git push origin master<br>
+								</pre>
 								實際的作用是將本地端的 master branch 與遠端的 master branch 作 fast-forward 合併。如果出現 [rejected] 錯誤的話，表示你必須先作 pull。
 							</p>	
 						<hr>	
@@ -383,11 +383,11 @@
 							<p>
 								<h4>台灣法律沿革</h4>
 								github repository :<br/>
-								<code>
+								<pre>
 									<a href="https://github.com/victorhsieh/tw-law-corpus">
 										https://github.com/victorhsieh/tw-law-corpus
 									</a>
-								</code>
+								</pre>
 							</p>
 						</div>
 						<div id="tpe_mrt">
@@ -397,11 +397,11 @@
 									<img src="http://gugod.org/2009/12/12/3389620_29acb2fe86d3e03e7f8c665c4225c454.jpg" style="margin-left:12em"><br>
 								</a>
 								github repository :<br>
-								<code>
+								<pre>
 									<a href="https://github.com/gugod/Taipei-MRT-In-Git">
 										https://github.com/gugod/Taipei-MRT-In-Git
 									</a>
-								</code>
+								</pre>
 							</p>
 						</div>		
 					</div>

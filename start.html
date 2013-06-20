@@ -29,7 +29,83 @@
 		</header>
 		<article id="main" class="fluid">
 			<section>
-					
+				<h3>安裝 Git</h3>
+				<hr>
+				<p>
+					Git 可以在各種不同的系統下使用，下面有各個系統下的安裝方式說明：<br>
+					<ul>
+						<li>
+							<a href="https://help.github.com/articles/set-up-git#platform-windows">
+								Windows 安裝 Git
+							</a>
+						</li>
+						<li>
+							<a href="https://help.github.com/articles/set-up-git#platform-mac">
+								Mac OSX 安裝 Git
+							</a>
+						</li>
+						<li>
+							<a href="https://help.github.com/articles/set-up-git">
+								Linux 安裝 Git
+							</a>
+						</li>
+					</ul>
+				</p>
+				<hr>
+				<h3>設定自己的 Git</h3>
+				<p>
+					Git 在裝好以後需要進行一些設定，有很多不同的類別，以下會一一進行說明。<br>
+					每一個 Commit 提交，都會有 Commit 人的資訊，像是姓名和 email ，我們可以用以下的
+					指令來進行設定。<br><br>
+					<pre>
+						$ git config --global user.name "Your Name" <br>
+						$ git config --global user.email "User at email.com"
+					</pre>
+				</p>
+				<p>
+					中間的 <code> --global</code> 代表全域設定，所有的設定都會放在家目錄的 .gitconfig 檔案裏面
+					可以用編輯器開啟來檢視及編輯。<br><br>
+					<pre>
+					     $cat ~/.gitconfig
+						[user]
+ 						        name = Username
+					        	email = user at email.com
+  						[alias]
+          						ci = commit
+          						st = status
+          						ch = checkout
+  						[color]
+          						ui = true
+  						[core]
+          						editor = vim
+					</pre>
+				</p>
+				<p>
+					使用終端機來操作 Git 常會讓人覺得一直打指令很繁瑣，因此 Git 也有提供 alias 的功能，
+					例如你可以將 git status 縮寫為 git st，git checkout 縮寫為 git co 等，你只要這樣設定：
+					<pre>
+						$ git config --global alias.st status
+					</pre>
+				</p>
+				<p>
+					在 Git 中預設輸出是沒有顏色的，為了方便的閱讀及使用體驗，我們勢必得加上一點點綴，讓我們
+					在使這個工具的時後能夠更方便更直覺的操作。
+					<pre>
+						$ git config --global color.ui true	
+					</pre>
+				</p>
+				<p>
+					而在 Git 中又有許多的事件是需要透過編輯器來讓使用者確定是否有問題，抑或是需要使用者去修改
+					在程序上所發生的錯誤，這個時候 Git 會自動跳出編輯器，所以我們需要設定一個常用的編輯器來作為
+					預設編輯器，一般我們會使用<a href="http://www.vim.org/"> vim</a> 作為編輯器，因為各種機器、
+					各種系統都有內建這個好用的編輯器。
+					<pre>
+						$ git config --global core.editor "vim"
+					</pre>
+				</p>
+				<p>
+					OK 這樣我們基本上就大致上設定完成了，可以開始使用 Git 了。
+				</p>
 			</section>
 		</article>
 		<hr>
