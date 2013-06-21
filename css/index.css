@@ -22,6 +22,9 @@ body{
 .span6 h3{
 	text-align:center;
 }
+.span6 h4{
+	text-align:center;
+}
 .span6  p{
 	text-indent: 2em;
 	text-align: justify;

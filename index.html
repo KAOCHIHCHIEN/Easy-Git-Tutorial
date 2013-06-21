@@ -178,7 +178,7 @@
 							Git 中一共有四種模式 : Blob﹑Tree﹑Commit﹑Tag。
 							<ul style="margin-top:1em">
 								<li><b>Blob</b>: 只是用來儲存檔案內容，連檔案名字都沒有。</li>
-								<li><b>Tree</b>: Tree 可以儲存文件名，同時也允许儲存一組檔案。所有内容以 Tree 或 Blob儲存，其中 Tree 對應於 UNIX 中的目錄，Blob 則大致對應於 inodes 或檔案内容。</li>
+								<li><b>Tree</b>: Tree 可以儲存文件名，同時也允許儲存一組檔案。所有内容以 Tree 或 Blob儲存，其中 Tree 對應於 UNIX 中的目錄，Blob 則大致對應於 inodes 或檔案内容。</li>
 								<li><b>Commit</b>: Commit 為你保存了關於誰、何時以及為何保存了這些快照的訊息。</li>
 								<li><b>Tag</b>: Tag 非常像一個 Commit ——包含一個標籤，一组數據，一個消息和一個指针。最主要的區别就是 Tag指向一個 Commit 而不是一個 tree。它就像是一個分支引用，但是不會變化——永遠指向同一個 Commit，僅僅是提供一個更加友好的名字。</li>
 							</ul>	
@@ -375,42 +375,49 @@
 					<div class="span6" style="margin-left:8em">
 						<h2>Git 的應用</h2>
 						<hr>
-						<ul>
-							<li><a href="#tw_law">台灣法律沿革</a></li>
-							<li><a href="#tpe_mrt">台北捷運路線</a></li>
-						</ul>
-						<div id="tw_law">
-							<p>
-								<h4>台灣法律沿革</h4>
-								github repository :<br/>
-								<pre>
-									<a href="https://github.com/victorhsieh/tw-law-corpus">
-										https://github.com/victorhsieh/tw-law-corpus
-									</a>
-								</pre>
-							</p>
+						<div id ="Linux kernel">
+							<h4>Linux kernel</h3>
+							Git 是由 Linux 的發明人 Linus Torvalds 所發明的，其目的就是為了更好的管理 Linux Kernel，所以 Linux kernel 可以算是應用方面最有說服力的例子了<br><br>
+							<a href="http://i.imgur.com/hz3iQbE.png">
+								<img src="http://i.imgur.com/hz3iQbE.png">
+							</a>
+							<br><br>
+							Linux kernel on Github:<br>
+							<pre>
+									https://github.com/torvalds/linux
+							</pre>
 						</div>
-						<div id="tpe_mrt">
+						<div id="g0v.tw">
 							<p>
-								<h4>台北捷運路線</h4>
-								<a href="http://gugod.org/2009/12/12/3389620_29acb2fe86d3e03e7f8c665c4225c454.jpg" alt="台北捷運">
-									<img src="http://gugod.org/2009/12/12/3389620_29acb2fe86d3e03e7f8c665c4225c454.jpg" style="margin-left:12em"><br>
-								</a>
-								github repository :<br>
+								<h4>台灣零時政府</h4>
+								<a href="http://g0v.tw/imgs/g0v-full.png">
+									<img src="http://g0v.tw/imgs/g0v-full.png" style="margin-left:12em"/>
+								</a><br>
+								政策瞎，官員混，立委貪，政府爛，總統笨……
+								除了生氣翻桌，到底還能做什麼？讓我們來寫程式改造社會！
+								<br>
+								g0v.tw 是一個致力於打造資訊透明化的社群。g0v.tw 的參與者來自四方，
+								有程式開發者、設計師、社會運動工作者、教育工作者、文字工作者、
+								公民與鄉民等來自各領域的人士。這些人聚在一起，
+								希望資訊透明化可以更進一步的改善台灣的公民環境。
+								只要有心想用自己的專業及能力來參與，就可以加入 g0v.tw。
+								<br>
+								有心想要參與的同學們，可以參考<a href="http://g0v.tw/">這個網站</a>
+								，看看可以為我們的社會付出什麼。
+								<br><br>
+								g0v.tw 的 Github Repository:<br>
 								<pre>
-									<a href="https://github.com/gugod/Taipei-MRT-In-Git">
-										https://github.com/gugod/Taipei-MRT-In-Git
-									</a>
-								</pre>
+									https://github.com/g0v
+								</pre>	
 							</p>
 						</div>		
 					</div>
 				</div>
 				
 				<script>
-					$('#tpe_mrt').photobox('a');
+					$('#git_application').photobox('a');
 					// or with a fancier selector and some settings, and a callback:
-					$('#tpe_mrt').photobox('a:first', { thumbs:false, time:0 }, imageLoaded);
+					$('#git_application').photobox('a:first', { thumbs:false, time:0 }, imageLoaded);
 					function imageLoaded(){
 						console.log('image has been loaded...');
 					}
