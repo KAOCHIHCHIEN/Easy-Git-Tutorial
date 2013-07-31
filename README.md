@@ -19,4 +19,4 @@
 5. 練習小程式
 
 ##Demo
-這個[連結](http://#)暫時不能使用  
+[Easy-Git-Tutorial](http://dylandy.github.io/Easy-Git-Tutorial/index.html) 
