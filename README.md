@@ -13,11 +13,11 @@
 
 本教學包含：
 
-1. 版本控制教學<
-2. Git 結構教學<
-3. Git 基本指令<
-4. Github 教學<
-5. 練習小程式<
+1. 版本控制教學 <br>
+2. Git 結構教學 <br>
+3. Git 基本指令 <br>
+4. Github 教學 <br>
+5. 練習小程式 <br>
 
 ##Demo
 [Easy-Git-Tutorial](http://dylandy.github.io/Easy-Git-Tutorial/index.html) 
