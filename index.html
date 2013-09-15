@@ -133,7 +133,7 @@
 								<div >
 									<strong style="font-size:1.8em">Centralized VCS (Lock型，悲觀鎖定)</strong>
 									<br>
-									有一台中央團隊共用的Repository，當有人要編輯某個檔案時，進行鎖定，以避免其他人也同時編輯造成衝突。<br>
+									有一中央團隊共用的Repository，當有人要編輯某個檔案時，進行鎖定，以避免其他人也同時編輯造成衝突。<br>
 									雖然可以避免衝突，但是很不方便。其他人得排隊才能編輯檔案，萬一先取出的人寫很久或忘記 解除鎖定，後果將不堪設想。<br>
 									<a href="http://i.imgur.com/nn6hX2F.png">
 										<img src="http://i.imgur.com/nn6hX2F.png" style="margin-left:2.5em;margin-top:1em"> 
@@ -142,7 +142,7 @@
 								<hr>
 								<div>
 									<strong style="font-size:1.8em">Centralized VCS(Merge型，樂觀鎖定)</strong><br>
-									也是有一台中央團隊共用的Repository，但是不用Lock來避免衝突，而是事後發現如果有別人也修改同一個檔案(稱作衝突)，再進行手動編修解決。有非常多的VCS屬於這一型，包括CVS, Subversion, Perforce等等。Centralized VCS 的共同缺點是做什麼事都要跟伺服器連線，會比較慢。另外也有單點故障的風險(Single point of failure)，只要伺服器壞掉，大家就不用作事了。<br>
+									也是有一中央團隊共用的Repository，但是不用Lock來避免衝突，而是事後發現如果有別人也修改同一個檔案(稱作衝突)，再進行手動編修解決。有非常多的VCS屬於這一型，包括CVS, Subversion, Perforce等等。Centralized VCS 的共同缺點是做什麼事都要跟伺服器連線，會比較慢。另外也有單點故障的風險(Single point of failure)，只要伺服器壞掉，大家就不用作事了。<br>
 
 									<a href="http://imgur.com/RWbDy85.png">
 										<img src="http://i.imgur.com/RWbDy85.png" style="margin-top:1em;margin-left:2.5em"/>
@@ -181,7 +181,7 @@
 							Git 中一共有四種模式 : Blob﹑Tree﹑Commit﹑Tag。
 							<ul style="margin-top:1em">
 								<li><b>Blob</b>: 只是用來儲存檔案內容，連檔案名字都沒有。</li>
-								<li><b>Tree</b>: Tree 可以儲存文件名，同時也允許儲存一組檔案。所有内容以 Tree 或 Blob儲存，其中 Tree 對應於 UNIX 中的目錄，Blob 則大致對應於 inodes 或檔案内容。</li>
+								<li><b>Tree</b>: Tree 可以儲存文件名，同時也允許儲存一組檔案。所有内容以 Tree 或 Blob儲存，其中 Tree 對應於 UNIX 中的目錄，Blob 則大致對應於 nodes 或檔案内容。</li>
 								<li><b>Commit</b>: Commit 為你保存了關於誰、何時以及為何保存了這些快照的訊息。</li>
 								<li><b>Tag</b>: Tag 非常像一個 Commit ——包含一個標籤，一组數據，一個消息和一個指针。最主要的區别就是 Tag指向一個 Commit 而不是一個 tree。它就像是一個分支引用，但是不會變化——永遠指向同一個 Commit，僅僅是提供一個更加友好的名字。</li>
 							</ul>	
@@ -231,7 +231,7 @@
 							<h3>檔案的三種狀態</h3>
 							任何檔案在 Git 内都有三種狀態：
 							<ol style="margin-top:1em">
-								<li><b style="color:red">已提交（committed）</b>: 表示該檔案已經被安全地保存在本地資料庫中了。</li>
+								<li><b style="color:red">已提交（committed）</b>: 表示該檔案已經被安全地保存在本地 repository 中了。</li>
 								<li><b style="color:red">已修改（modified）</b>: 修改了某個檔案，但還没有提交保存。</li>
 								<li><b style="color:red">已暫存（staged）</b>: 把已修改的檔案放在下次提交时要保存的清單中。</li>
 							</ol>
@@ -270,9 +270,9 @@
 						<hr>
 						<div id="gallery01">
 							<p>
-								Github 是一個 git 的拖管網站，他可以讓開發人把自己的專案儲存到線上，與全世界分享，我們可以方便的使用 Git 在本機進行管理專案。<br/>
- GitHub 同時提供付費賬戶和為開源項目提供的免費賬戶。根據在 2009 年的 Git 用戶調查，GitHub 是最流行的 Git 存取站點。它提供了像 feeds、followers 和顯示開發者們怎樣在他們版本庫上的版本工作的網路圖表。
- GitHub 也提供一個粘貼箱風格的站點，個人信息庫和網頁使用 Wiki，通過一個 git repository 即可對這些頁面進行編輯。
+								Github 是一個 git 的托管網站，他可以讓開發者把自己的專案儲存到網路上，與全世界分享，我們可以方便的使用 Git 在本機進行專案管理。<br/>
+ GitHub 同時提供付費帳號和為開源軟體提供的免費帳號。根據在 2009 年的 Git 用戶調查，GitHub 是最流行的 Git 分享網站。它提供了如 feeds、followers 和顯示開發者們怎樣在他們版本庫上的版本工作的圖表。
+ GitHub 也提供類似剪貼簿的功能，個人 issue 和網頁使用 Wiki，通過一個 git repository 即可對這些頁面進行編輯。
 							</p>
 						<hr/>
 						<h3>建立帳號</h3>
@@ -326,7 +326,7 @@
 						<hr>
 						<h3>Folk 其他使用者的專案</h3>
 							<p>
-								Fork 是一個較為特殊的稱呼方式，意思是講其他使用者的 repository 複製到本機，我也可以直接透過他的 repository 來自己修改這個專案，讓這個專案更好。<br>
+								Fork 是一個較為特殊的稱呼方式，意思是將其他使用者的 repository 複製到本機，我也可以直接透過他的 repository 來自己修改這個專案，讓這個專案更好。<br>
 								如果你有寫入權限的話(被加入成Collaborators)，就可以用 SSH 協定 Clone 下來：<br>
 								<pre>
 									git clone git@github.com:Username/repository.git <br><br>
