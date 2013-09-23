@@ -85,11 +85,11 @@
 							<ul style="margin-top:1em">
 								<li>檔案被別人或自己覆蓋，甚至遺失</li>
 								<li>想復原前幾天寫的版本</li>
-								<li>想知道跟昨天寫的差在哪裡</li>
-								<li>是誰改了這段程式碼，為什麼</li>
+								<li>想知道跟昨天寫的差在哪裡？</li>
+								<li>是誰改了這段程式碼，為什麼 ？</li>
 								<li>軟體發行，需要分成維護版跟開發版</li>
 							</ul>
-						因此，我們希望有一種機制，能有幫助我們：
+						因此，我們希望有一種機制，能夠幫助我們：
 							<ul style="margin-top:1em">
 								<li>可以隨時復原修改，回到之前的版本</li>
 								<li>多人協作時，不會把別人的東西蓋掉</li>
@@ -102,13 +102,13 @@
 							<p>
 								一個版本控制系統 Version Control System (VCS)，通常有以下功能
 								<ol>
-									<li>建立 Repository (儲存庫)，用來保存程式碼。</li>
+									<li>建立 Repository，用來保存程式碼。</li>
 									<li>方便散佈程式給團隊，有效率協同開發 </li>
 									<li>記錄誰改變什麼、在什麼時候、因為什麼原因 </li>
 									<li>Branch(分支)，可因不同情境分開開發</li>
 									<li>Tag(標籤) 重要里程碑，以便參照</li>
 								</ol>
-								那麼，什麼東西要存進Repository呢? 簡單來說，就是所有跑起來這個專案需要的東西，包括所有原始碼、範例設計檔、文件等等。而像是暫存檔、log 檔案、build files 等編譯後的產物則不需要存進 Repository。	
+								那麼，什麼東西要存進 Repository 呢? 簡單來說，就是所有跑起來這個專案需要的東西，包括所有原始碼、範例設計檔、文件等等。而像是暫存檔、log 檔案、build files 等編譯後的產物則不需要存進 Repository。	
 							</p>
 						</div>
 						<h3>演進歷史</h3>
@@ -196,7 +196,7 @@
 						<hr>
 						<div>
 							<h3>Git 參照 ( Git References )</h3>
-							你可以執行像<pre> git log 1a410e </pre>這樣的命令來查看完整的歷史，但是這樣你就要記得 1a410e 是你最後一次提交，這樣才能在提交歷史中找到這些物件。你需要一個檔案來用一個簡單的名字來記錄這些 SHA-1 值，這樣你就可以用這些指針而不是原來的 SHA-1 值去檢索了。在 Git 中，我們稱之為“參照”（references or refs）。
+							你可以執行像<pre> git log 1a410e </pre>這樣的指令來查看完整的紀錄，但是這樣你就要記得 1a410e 是你最後一次 commit，這樣才能在 commit history 中找到這些物件。你需要一個檔案來用一個簡單的名字來記錄這些 SHA-1 值，這樣你就可以用這些 pointer 而不是原來的 SHA-1 值去搜尋了。在 Git 中，我們稱之為 reference（references or refs），以下是 Git 中常用的 reference 介紹。
 							<ol style="margin-top:1em">
 								<li><b>head</b>:  是一個指向你當前所在分支的引用標示符號。</li>
 								<li><b>tag</b>: tag 是一個物件也是一個引用，我們在之前已經做過了詳細的說明。</li>
@@ -270,9 +270,9 @@
 						<hr>
 						<div id="gallery01">
 							<p>
-								Github 是一個 git 的托管網站，他可以讓開發者把自己的專案儲存到網路上，與全世界分享，我們可以方便的使用 Git 在本機進行專案管理。<br/>
- GitHub 同時提供付費帳號和為開源軟體提供的免費帳號。根據在 2009 年的 Git 用戶調查，GitHub 是最流行的 Git 分享網站。它提供了如 feeds、followers 和顯示開發者們怎樣在他們版本庫上的版本工作的圖表。
- GitHub 也提供類似剪貼簿的功能，個人 issue 和網頁使用 Wiki，通過一個 git repository 即可對這些頁面進行編輯。
+								Github 是一個 git 的托管網站，可以讓開發者將自己的專案儲存到網路上，與全世界分享，我們可以方便的使用 Git 在本機進行專案管理。<br/>
+ GitHub 同時提供付費帳號和為了開放原始碼程式提供的免費帳號。根據 2009 年的 Git 使用者調查，GitHub 是最熱門的 Git 分享網站。它提供了如 feeds、followers 和顯示開發者們如何在他們版本庫上的版本工作的圖表。
+ GitHub 也提供類似剪貼簿的功能，issue tracker 和網頁使用 Wiki，通過一個 git repository 即可對這些頁面進行編輯。
 							</p>
 						<hr/>
 						<h3>建立帳號</h3>
