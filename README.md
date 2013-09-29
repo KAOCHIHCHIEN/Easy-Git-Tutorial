@@ -23,8 +23,8 @@
 [Easy-Git-Tutorial](http://dylandy.github.io/Easy-Git-Tutorial/index.html) 
 
 ##Known Issue
-<s>有些瀏覽器可能無法開啟 Flash 小程式，可能是 Adobe Flash CS5 在產生影片的時候的問題，
-目前正在想辦法解決。</s>
+<del>有些瀏覽器可能無法開啟 Flash 小程式，可能是 Adobe Flash CS5 在產生影片的時候的問題，
+目前正在想辦法解決。</del><br>
 此問題在上傳至 Github page 後已解決。
 
 ##TODO
