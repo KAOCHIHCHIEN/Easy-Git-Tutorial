@@ -23,5 +23,10 @@
 [Easy-Git-Tutorial](http://dylandy.github.io/Easy-Git-Tutorial/index.html) 
 
 ##Known Issue
-有些瀏覽器可能無法開啟 Flash 小程式，可能是 Adobe Flash CS5 在產生影片的時候的問題，
-目前正在想辦法解決。
+<s>有些瀏覽器可能無法開啟 Flash 小程式，可能是 Adobe Flash CS5 在產生影片的時候的問題，
+目前正在想辦法解決。</s>
+此問題在上傳至 Github page 後已解決。
+
+##TODO
+1. rebase 的使用<br>
+2. conflict 時的解決<br>
