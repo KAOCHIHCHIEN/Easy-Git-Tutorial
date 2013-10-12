@@ -23,9 +23,6 @@
 ##Demo
 請參考[Easy-Git-Tutorial](http://dylandy.github.io/Easy-Git-Tutorial/index.html) 
 
-##Known Issue
-1.<del>有些瀏覽器可能無法開啟 Flash 小程式，可能是 Adobe Flash CS5 在產生影片的時候的問題，
-目前正在想辦法解決。</del><br>此問題已解決。
 
 ##TODO
 1. rebase 的使用<br>
